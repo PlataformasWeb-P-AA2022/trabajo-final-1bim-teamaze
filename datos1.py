@@ -21,7 +21,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
-print("\t\tConsulta 1")
+print("Consulta 1")
 #Todos los establecimientos que pertenecen al Código División Política Administrativa Parroquia con valor 110553
 print("Establecimientos con el Código División Política Administrativa Parroquia con valor 110553") 
 
@@ -31,11 +31,10 @@ for elemento in establecimiento:
     cadena = cadena.replace("',)", "")
     print(cadena)
 
-print("\t\tConsulta 2")
+print("Consulta 2")
 #Todos los establecimientos de la provincia de EL ORO.
 print("Establecimientos de la provincia de EL ORO") 
 
-# Consulta que devuelve  los establecimientos de la provincia de EL ORO.
 establecimiento = session.query(Establecimiento.nombre_estable).join(Parroquia, Canton, Provincia).filter(Provincia.nombre_Pro == 'EL ORO').all()
 for elemento in establecimiento:
     cadena = "Nombre Establecimiento: %s" %(str(elemento).replace("('",""))
@@ -43,11 +42,12 @@ for elemento in establecimiento:
     print(cadena)
 print(len(establecimiento))
 
-print("\t\tConsulta 3")
+
+
+print("Consulta 3")
 #Todos los establecimientos del cantón de Portovelo.
 print("Establecimientos de la cantón de Portovelo") 
 
-# Consulta que devuelve  los establecimientos del cantón de Portovelo.
 establecimiento = session.query(Establecimiento.nombre_estable).join(Parroquia, Canton, Provincia).filter(Canton.nombre == 'PORTOVELO').all()
 for elemento in establecimiento:
     cadena = "Nombre Establecimiento: %s" %(str(elemento).replace("('",""))
@@ -56,16 +56,14 @@ for elemento in establecimiento:
 print(len(establecimiento))
 
 
-print("\t\tConsulta 4")
+
+print("Consulta 4")
 #Todos los establecimientos del cantón de Zamora.
 print("Establecimientos de la cantón de Zamora") 
 
-# Consulta que devuelve  los establecimientos del cantón de Zamora.
 establecimiento = session.query(Establecimiento.nombre_estable).join(Parroquia, Canton, Provincia).filter(Canton.nombre_cant == 'ZAMORA').all()
 for elemento in establecimiento:
     cadena = "Nombre Establecimiento: %s" %(str(elemento).replace("('",""))
     cadena = cadena.replace("',)", "")
     print(cadena)
 print(len(establecimiento))
-
-

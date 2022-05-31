@@ -19,6 +19,8 @@ engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+
+print("Consulta 1")
 print("Los establecimientos ordenados por nombre de parroquia que tengan más de 40 profesores y la cadena Educación regular en tipo de educación.") 
 
 establecimientos = session.query(Establecimiento.nombre_estable, Parroquia.nombre_parro).join(Parroquia).filter(
@@ -33,6 +35,7 @@ for elemento in establecimientos:
     print(cadena)
 
 
+print("Consulta 2")
 print("Todos los establecimientos ordenados por sostenimiento y tengan código de distrito 11D04.")
 
 establecimientos1 = session.query(Establecimiento.nombre_estable).filter(Establecimiento.codigo_AMIE.like('11D04')).order_by(Establecimiento.sostenimiento)

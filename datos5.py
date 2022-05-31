@@ -20,6 +20,7 @@ engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+print("Consulta 1")
 print("Los establecimientos ordenados por número de estudiantes que tengan más de 100 profesores.")
 establecimientos = session.query(Establecimiento.nombre_estable).filter(Establecimiento.num_docentes > 100)\
     .order_by(asc(Establecimiento.num_estudiantes)).all()
@@ -29,8 +30,8 @@ for elemento in establecimientos:
     cadena = cadena.replace("',)", "")
     print(cadena)
 
-
-print("\nLos establecimientos ordenados por número de profesores que tengan más de 100 profesores.")
+print("Consulta 2")
+print("Los establecimientos ordenados por número de profesores que tengan más de 100 profesores.")
 
 establecimientos1 = session.query(Establecimiento.nombre_estable, Establecimiento.num_docentes).filter(
     Establecimiento.num_docentes > 100).order_by(asc(Establecimiento.num_docentes)).all()

@@ -17,6 +17,7 @@ engine = create_engine(cadena_base_datos)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+
 print("Consulta 1")
 #Las parroquias que tienen establecimientos únicamente en la jornada "Matutina y Vespertina"
 print("Establecimientos con el Código División Política Administrativa Parroquia con valor 110553") 
@@ -27,6 +28,7 @@ for elemento in parroquia:
     cadena = cadena.replace("',)", "")
     print(cadena)
 print(len(parroquia))
+
 
 
 print("Consulta 2")

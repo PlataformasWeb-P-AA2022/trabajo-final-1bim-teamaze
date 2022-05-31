@@ -32,6 +32,8 @@ for elemento in cantones:
     print(cadena)
 print(len(cantones))
 
+
+
 print("Consulta 2")
 #Los establecimientos que pertenecen a la parroquia Pindal con estudiantes mayores o iguales a 21
 print("Los establecimientos que pertenecen a la parroquia Catacocha con estudiantes mayores o iguales a 21") 
